@@ -22,7 +22,7 @@
 
 （3）g++编译采用o2编译优化，遇到的问题，优化前没有段错误，优化后出现段错误，问题在于没有返回值，开启o2优化后，需要严格按照c++语法进行编程，避免ub行为。
 
-![Alt text](assets\1.jpg)
+![Alt text](https://github.com/wgdupup/notes/blob/main/assets/1.jpg)
 
 （4）后续可以研究lto以及pgo优化。
 
