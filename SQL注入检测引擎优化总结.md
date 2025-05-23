@@ -28,5 +28,29 @@
 
 （1）后续可以研究lto以及pgo优化。
 
-（2）在numa架构系统中，避免缓存抖动/伪共享。
+（2）在numa架构系统中，避免缓存抖动/伪共享
+
+```
+getconf -a | grep CACHE
+可以查看cpu内部L1、L2、L3缓存大小
+```
+
+```
+ubuntu20.0.4下执行命令
+LEVEL1_ICACHE_SIZE                 32768 //表示指令缓存大小
+LEVEL1_ICACHE_ASSOC                8     //指令缓存的关联度，即每个缓存组中可以存放的缓存行数,8 表示 L1 指令缓存是 8 路组相联的，每个缓存组中有 8 个位置来存放缓存行。
+LEVEL1_ICACHE_LINESIZE             64	//每个缓存行的大小，表示从内存中读取数据时，每次加载的数据量。
+LEVEL1_DCACHE_SIZE                 49152// L1 数据缓存的总大小，表示缓存存储的数据量
+LEVEL1_DCACHE_ASSOC                12	//L1 数据缓存的组相联度，表示每个缓存组中可以存放的缓存行数。
+LEVEL1_DCACHE_LINESIZE             64	//L1 数据缓存中的缓存行大小。每个缓存行的大小为 64 字节，每次从缓存读取的数据量是 64 字节。
+LEVEL2_CACHE_SIZE                  1310720
+LEVEL2_CACHE_ASSOC                 10
+LEVEL2_CACHE_LINESIZE              64
+LEVEL3_CACHE_SIZE                  18874368
+LEVEL3_CACHE_ASSOC                 12
+LEVEL3_CACHE_LINESIZE              64
+LEVEL4_CACHE_SIZE                  0
+LEVEL4_CACHE_ASSOC                 0
+LEVEL4_CACHE_LINESIZE              0
+```
 
